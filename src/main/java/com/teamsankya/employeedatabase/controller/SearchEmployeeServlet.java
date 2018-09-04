@@ -1,5 +1,5 @@
 package com.teamsankya.employeedatabase.controller;
 
-public class GetEmployeeServlet {
+public class SearchEmployeeServlet {
 
 }

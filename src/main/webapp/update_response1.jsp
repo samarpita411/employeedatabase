@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Profile updated</h1><br>
+<h1>Encountered a problem while Updating profile</h1><br>
 	<a href='./index.jsp'>Click here for Home Page</a>
 </body>
 </html>

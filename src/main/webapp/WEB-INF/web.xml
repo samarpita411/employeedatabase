@@ -37,11 +37,11 @@
  </servlet-mapping>
  
  <servlet>
-  <servlet-name>GetEmployee</servlet-name>
-  <servlet-class>com.teamsankya.employeedatabase.controller.GetEmployeeServlet</servlet-class>
+  <servlet-name>SearchEmployee</servlet-name>
+  <servlet-class>com.teamsankya.employeedatabase.controller.SearchEmployeeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>GetEmployee</servlet-name>
+  <servlet-name>SearchEmployee</servlet-name>
   <url-pattern>/search</url-pattern>
  </servlet-mapping>
 

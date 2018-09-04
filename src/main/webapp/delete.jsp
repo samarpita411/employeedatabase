@@ -4,9 +4,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<div class='panel' id='js-panel'>
+  <div class='panel__content'>
+   <br>
+</br>
 </head>
 <body>
+<form action="./delete" method="post">
+</div>
+    <center> <h1>Deleting your Account?</h1>
+    <h4>Then Enter Your</h4></center>
+  </div>
+<div><center>
 
+                      <tr>
+					<td>ID</td>
+					<td><input type="text" name="id" size="30"  /></td>
+				</tr>
+</center>
+</div>
+<br>
+</br>
+<center>
+<td><input type="submit" value="Delete"/>  </td>
+<br>
+</br>
+</center>
 </body>
 </html>

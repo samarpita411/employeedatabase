@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h1>Your ID is...</h1><br>
+  <br>
+   </br>
+	<a href='./index.jsp'>Click here for Home Page</a>
 </body>
 </html>
