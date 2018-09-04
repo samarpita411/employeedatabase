@@ -38,10 +38,6 @@ public class GetEmployeeServlet extends HttpServlet {
     out.println("Designation "+bean.getEmpDesignationInfoBean().getDesignation());
     out.println("Cost to company "+bean.getEmpDesignationInfoBean().getCostTocompany());
 
-
-    
-		
-		super.doPost(req, resp);
 	}
 
 }
