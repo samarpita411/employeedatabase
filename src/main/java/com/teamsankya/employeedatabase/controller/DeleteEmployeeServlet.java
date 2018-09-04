@@ -22,7 +22,7 @@ public class DeleteEmployeeServlet extends HttpServlet {
 
 		System.out.println("sending the response now");
 
-		req.getRequestDispatcher("DeleteEmployeeResponse.jsp").forward(req, resp);
+		req.getRequestDispatcher("DeleteEmployeeRespons.jsp").forward(req, resp);
 		System.out.println("response done");
 
 

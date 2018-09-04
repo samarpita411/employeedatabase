@@ -41,13 +41,13 @@ public class CreateEmployeeServlet extends HttpServlet {
         EmployeeCompanyInfoBean employeeCompanyInfoBean = new EmployeeCompanyInfoBean();
         employeeCompanyInfoBean.setId(Integer.parseInt(req.getParameter("id")));
         employeeCompanyInfoBean.setDateOfJoining(req.getParameter("dateOfJoining"));
-        employeeCompanyInfoBean.setExperience(req.getParameter("experience"));
+        employeeCompanyInfoBean.setExperience(Integer.parseInt(req.getParameter("experience")));
         employeeCompanyInfoBean.setLastCompanyName(req.getParameter("lastCompanyName"));
         
         EmployeeDesignationInfoBean employeeDesignationInfoBean = new EmployeeDesignationInfoBean();
         employeeDesignationInfoBean.setId(Integer.parseInt(req.getParameter("id")));
         employeeDesignationInfoBean.setDesignation(req.getParameter("designation"));
-        employeeDesignationInfoBean.setCostTocompany(req.getParameter("costToCompany"));
+        employeeDesignationInfoBean.setCostTocompany(Integer.parseInt(req.getParameter("costToCompany")));
 	    
         EmployeeMasterBean employeeMasterBean = new EmployeeMasterBean();
         employeeMasterBean.setEmpInfoBean(employeeInfoBean);
