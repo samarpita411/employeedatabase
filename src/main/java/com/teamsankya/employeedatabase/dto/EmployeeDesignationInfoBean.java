@@ -3,7 +3,7 @@
 public class EmployeeDesignationInfoBean {
 	private int id;
 	private String designation;
-	private String costToCompany;
+	private int costToCompany;
 	
 	public int getId() {
 		return id;
@@ -17,10 +17,10 @@ public class EmployeeDesignationInfoBean {
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
-	public String getCostTocompany() {
+	public int getCostTocompany() {
 		return costToCompany;
 	}
-	public void setCostTocompany(String costTocompany) {
+	public void setCostTocompany(int costTocompany) {
 		this.costToCompany = costTocompany;
 	}
 
