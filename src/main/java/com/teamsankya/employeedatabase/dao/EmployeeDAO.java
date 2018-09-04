@@ -12,5 +12,6 @@ public interface EmployeeDAO
 	public boolean updateEmployee(EmployeeMasterBean bean );
 	public boolean deleteEmployee(int empId);
 	
+	
 
 }

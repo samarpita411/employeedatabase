@@ -156,14 +156,14 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 							data.getEmpInfoBean().setFirstname(rs.getString("firstname"));
 							data.getEmpInfoBean().setLastname(rs.getString("lastname"));
 							
-							data.getEmpCompanyInfoBean().setDateOfJoining(rs.getString("date_of_joining"));
 							data.getEmpCompanyInfoBean().setExperience(rs.getInt("experience"));
 							data.getEmpCompanyInfoBean().setLastCompanyName(rs.getString("last_company_name"));
                           
                             data.getEmpPersonalInfoBean().setDateOfBirth(rs.getString("date_of_birth"));
 							data.getEmpPersonalInfoBean().setPhNumber(rs.getInt("phone_no"));
-							data.getEmpPersonalInfoBean().setEmailId(rs.getString("email_id"));
+				 			data.getEmpPersonalInfoBean().setEmailId(rs.getString("email_id"));
 							
+							data.getEmpDesignationInfoBean().setDateOfJoining(rs.getString("date_of_joining"));
 							data.getEmpDesignationInfoBean().setDesignation(rs.getString("designation"));
 							data.getEmpDesignationInfoBean().setCostTocompany(rs.getInt("cost_to_company"));
 							
@@ -196,41 +196,40 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 			try (Connection con = DriverManager
 					.getConnection("jdbc:mysql://localhost:3306/employee_db?user=root&password=root");
 					PreparedStatement pstmt1 = con.prepareStatement("update employee_info set firstname=?,lastname=?  where id=?");
-					PreparedStatement pstmt2 = con.prepareStatement("update previous_company_info set date_of_joining=?,experience=?,last_company_name=? where id=?");
+					PreparedStatement pstmt2 = con.prepareStatement("update previous_company_info set experience=?,last_company_name=? where id=?");
 					PreparedStatement pstmt3 = con.prepareStatement("update employee_personal_info set date_of_birth=?,phone_no=?,email_id  =? where id=?");
-					PreparedStatement pstmt4= con.prepareStatement("update current_company_info_info set designation=?,cost_to_company=? where id=?");
+					PreparedStatement pstmt4= con.prepareStatement("update current_company_info_info set  date_of_joining=?,designation=?,cost_to_company=? where id=?");
 					PreparedStatement pstmt5= con.prepareStatement("update employee_address_info set address1=?,address2=?,city=?,pincode=?  where id=?");){
 			
 				System.out.println("connection done");
 				pstmt1.setString(1, bean.getEmpInfoBean().getFirstname());
-				pstmt1.setString(1,bean.getEmpInfoBean().getLastname());
-				pstmt1.setString(2,bean.getEmpInfoBean().getId());
+				pstmt1.setString(2,bean.getEmpInfoBean().getLastname());
+				pstmt1.setString(3,bean.getEmpInfoBean().getId());
 				System.out.println("setting values1 done");
 				
 				
-				pstmt2.setString(1, bean.getEmpCompanyInfoBean().getDateOfJoining());
-				pstmt2.setInt(1, bean.getEmpCompanyInfoBean().getExperience());
-				pstmt2.setString(1, bean.getEmpCompanyInfoBean().getLastCompanyName());
-				pstmt2.setString(2, bean.getEmpCompanyInfoBean().getId());
+				pstmt2.setInt(1,bean.getPreviousCompanyInfoBean().getExperience());
+				pstmt2.setString(2,bean.getPreviousCompanyInfoBean().getLastCompanyName());
+				pstmt2.setString(3,bean.getPreviousCompanyInfoBean().getId());
 				System.out.println("setting values2 done");	
 				
-				pstmt3.setString(1, bean.getEmpPersonalInfoBean().getDateOfBirth());
-				pstmt3.setInt(1,  bean.getEmpPersonalInfoBean().getPhNumber());
-				pstmt3.setString(1,  bean.getEmpPersonalInfoBean().getEmailId());
-				pstmt3.setString(2, bean.getEmpPersonalInfoBean().getId());
+				pstmt3.setString(1,bean.getEmpPersonalInfoBean().getDateOfBirth());
+				pstmt3.setInt(2,bean.getEmpPersonalInfoBean().getPhNumber());
+				pstmt3.setString(3,bean.getEmpPersonalInfoBean().getEmailId());
+				pstmt3.setString(4,bean.getEmpPersonalInfoBean().getId());
 				System.out.println("setting values3 done");
 				
-				
-				pstmt4.setString(1, bean.getEmpDesignationInfoBean().getDesignation());
-				pstmt4.setInt(1, bean.getEmpDesignationInfoBean().getCostTocompany());
-				pstmt4.setString(2, bean.getEmpDesignationInfoBean().getId());
+				pstmt4.setString(1,bean.getCurrentCompanyInfoBean().getDateOfJoining());
+				pstmt4.setString(2,bean.getCurrentCompanyInfoBean().getDesignation());
+				pstmt4.setInt(3,bean.getCurrentCompanyInfoBean().getCostToCompany());
+				pstmt4.setString(4,bean.getCurrentCompanyInfoBean().getId());
 				System.out.println("setting values4 done");
 				
-				pstmt5.setString(1, bean.getEmpAddressInfoBean().getAddress1());
-				pstmt5.setString(1, bean.getEmpAddressInfoBean().getAddress2());
-				pstmt5.setString(1,  bean.getEmpAddressInfoBean().getCity());
-				pstmt5.setInt(1,  bean.getEmpAddressInfoBean().getPincode());
-				pstmt5.setString(2,bean.getEmpAddressInfoBean().getId());
+				pstmt5.setString(1,bean.getEmpAddressInfoBean().getAddress1());
+				pstmt5.setString(2,bean.getEmpAddressInfoBean().getAddress2());
+				pstmt5.setString(3,bean.getEmpAddressInfoBean().getCity());
+				pstmt5.setInt(4,bean.getEmpAddressInfoBean().getPincode());
+				pstmt5.setString(5,bean.getEmpAddressInfoBean().getId());
 				System.out.println("setting values5 done");
 				
 				
@@ -255,7 +254,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 			e.printStackTrace();
 		}
 		return check;
-	}//end of UPDATE method
+	}//end of UPDATE method DONE
 
 	@Override
 	public boolean deleteEmployee(int empId) {
@@ -298,7 +297,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 			e.printStackTrace();
 		}
 		return check;
-	}//end of delete method
+	}//end of delete method DONE
 
 }//end of class
 

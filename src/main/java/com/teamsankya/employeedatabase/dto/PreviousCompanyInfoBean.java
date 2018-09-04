@@ -1,8 +1,7 @@
 package com.teamsankya.employeedatabase.dto;
 
-public class EmployeeCompanyInfoBean{
+public class PreviousCompanyInfoBean{
 	private String id;
-	private String dateOfJoining;
 	private int experience;
 	private String lastCompanyName;
 	
@@ -12,12 +11,7 @@ public class EmployeeCompanyInfoBean{
 	public void setId(String string) {
 		this.id = string;
 	}
-	public String getDateOfJoining() {
-		return dateOfJoining;
-	}
-	public void setDateOfJoining(String dateOfJoining) {
-		this.dateOfJoining = dateOfJoining;
-	}
+	
 	public int getExperience() {
 		return experience;
 	}

@@ -5,9 +5,8 @@ public class EmployeeMasterBean
 	private EmployeeInfoBean empInfoBean=new EmployeeInfoBean();
 	private EmployeePersonalInfoBean empPersonalInfoBean=new EmployeePersonalInfoBean();
 	private EmployeeAddressInfoBean empAddressInfoBean= new EmployeeAddressInfoBean();
-	private EmployeeCompanyInfoBean empCompanyInfoBean=new EmployeeCompanyInfoBean();
-	private EmployeeDesignationInfoBean empDesignationInfoBean= new EmployeeDesignationInfoBean();
-	
+	private PreviousCompanyInfoBean previousCompanyInfoBean=new PreviousCompanyInfoBean();
+	private CurrentCompanyInfoBean currentCompanyInfoBean= new CurrentCompanyInfoBean();
 	public EmployeeInfoBean getEmpInfoBean() {
 		return empInfoBean;
 	}
@@ -26,19 +25,20 @@ public class EmployeeMasterBean
 	public void setEmpAddressInfoBean(EmployeeAddressInfoBean empAddressInfoBean) {
 		this.empAddressInfoBean = empAddressInfoBean;
 	}
-	public EmployeeCompanyInfoBean getEmpCompanyInfoBean() {
-		return empCompanyInfoBean;
+	public PreviousCompanyInfoBean getPreviousCompanyInfoBean() {
+		return previousCompanyInfoBean;
 	}
-	public void setEmpCompanyInfoBean(EmployeeCompanyInfoBean empCompanyInfoBean) {
-		this.empCompanyInfoBean = empCompanyInfoBean;
+	public void setPreviousCompanyInfoBean(PreviousCompanyInfoBean previousCompanyInfoBean) {
+		this.previousCompanyInfoBean = previousCompanyInfoBean;
 	}
-	public EmployeeDesignationInfoBean getEmpDesignationInfoBean() {
-		return empDesignationInfoBean;
+	public CurrentCompanyInfoBean getCurrentCompanyInfoBean() {
+		return currentCompanyInfoBean;
 	}
-	public void setEmpDesignationInfoBean(EmployeeDesignationInfoBean empDesignationInfoBean) {
-		this.empDesignationInfoBean = empDesignationInfoBean;
+	public void setCurrentCompanyInfoBean(CurrentCompanyInfoBean currentCompanyInfoBean) {
+		this.currentCompanyInfoBean = currentCompanyInfoBean;
 	}
-
+	
+	
 	
 	
 	
