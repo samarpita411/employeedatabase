@@ -3,9 +3,18 @@ package com.teamsankya.employeedatabase.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
+
+import com.teamsankya.employeedatabase.dto.EmployeeAddressInfoBean;
+import com.teamsankya.employeedatabase.dto.EmployeeCompanyInfoBean;
+import com.teamsankya.employeedatabase.dto.EmployeeDesignationInfoBean;
+import com.teamsankya.employeedatabase.dto.EmployeeInfoBean;
 import com.teamsankya.employeedatabase.dto.EmployeeMasterBean;
+import com.teamsankya.employeedatabase.dto.EmployeePersonalInfoBean;
 
 public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 
@@ -63,15 +72,164 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 
 	@Override
 	public EmployeeMasterBean getEmployee(int empId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		
+		EmployeeMasterBean bean = new EmployeeMasterBean();
+		EmployeeInfoBean empInfo=new EmployeeInfoBean();
+		EmployeeCompanyInfoBean empCompanyInfo=new EmployeeCompanyInfoBean();
+		EmployeePersonalInfoBean empPersonalInfo=new EmployeePersonalInfoBean();
+		EmployeeDesignationInfoBean empDesignationInfo=new EmployeeDesignationInfoBean();
+		EmployeeAddressInfoBean empAddressInfo=new EmployeeAddressInfoBean();
+		
+		
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			try (Connection con = DriverManager
+					.getConnection("jdbc:mysql://localhost:3306/student_ex1?user=root&password=root")) {
+				try (PreparedStatement pstmt1 = con.prepareStatement("select * from employee_info where regno=?");
+					 PreparedStatement pstmt2 = con.prepareStatement("select * from employee_company_info where regno=?");
+					 PreparedStatement pstmt3 = con.prepareStatement("select * from employee_personal_info where regno=?");
+					 PreparedStatement pstmt4 = con.prepareStatement("select * from employee_designation_info where regno=?");						
+					 PreparedStatement pstmt5 = con.prepareStatement("select * from employee_address_info where regno=?");)
+
+				{
+					pstmt1.setInt(1,empId);
+
+					try (ResultSet rs1 = pstmt1.executeQuery()) {
+						if (rs1.next()) {
+							System.out.println("student found table1");
+							empInfo.setId(rs1.getString("id"));
+							empInfo.setFirstname(rs1.getString("firstname"));
+							empInfo.setLastname(rs1.getString("lastname"));
+							
+
+						}
+
+					}
+					pstmt2.setInt(1,empId);
+					try (ResultSet rs2 = pstmt2.executeQuery()) {
+						if (rs2.next()) {
+							System.out.println("student found table2");
+							empCompanyInfo.setId(rs2.getString("id"));
+							empCompanyInfo.setDateOfJoining(rs2.getString("date_of_joining"));
+							empCompanyInfo.setExperience(rs2.getInt("experience"));
+							empCompanyInfo.setLastCompanyName(rs2.getString("last_company_name"));
+						}
+
+					}
+
+					pstmt3.setInt(1, empId);
+					try (ResultSet rs3 = pstmt3.executeQuery()) {
+						if (rs3.next()) {
+							System.out.println("student found table3");
+							empPersonalInfo.setId(rs3.getString("id"));
+							empPersonalInfo.setDateOfBirth(rs3.getString("date_of_birth"));
+							empPersonalInfo.setPhNumber(rs3.getInt("phone_no"));
+							empPersonalInfo.setEmailId(rs3.getString("email_id"));
+						}
+					}
+					
+					pstmt4.setInt(1,empId);
+					try (ResultSet rs4 = pstmt4.executeQuery()) {
+						if (rs4.next()) {
+							System.out.println("student found table4");
+							empDesignationInfo.setId(rs4.getString("id"));
+							empDesignationInfo.setDesignation(rs4.getString("designation"));
+							empDesignationInfo.setCostTocompany(rs4.getInt("cost_to_company"));
+							
+						}
+
+					}
+					
+					pstmt5.setInt(1,empId);
+					try (ResultSet rs5 = pstmt5.executeQuery()) {
+						if (rs5.next()) {
+							System.out.println("student found table5");
+							empAddressInfo.setId(rs5.getString("id"));
+							empAddressInfo.setAddress1(rs5.getString("address1"));
+							empAddressInfo.setAddress2(rs5.getString("address2"));
+							empAddressInfo.setCity(rs5.getString("city"));
+							empAddressInfo.setPincode(rs5.getInt("pincode"));
+							
+						}
+
+					}
+					
+					
+					bean.setEmpInfoBean(empInfo);
+					bean.setEmpCompanyInfoBean(empCompanyInfo);
+					bean.setEmpPersonalInfoBean(empPersonalInfo);
+					bean.setEmpDesignationInfoBean(empDesignationInfo);
+					bean.setEmpCompanyInfoBean(empCompanyInfo);
+
+				}
+
+			}
+	} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return bean;
+	}//end of GETEMPLOYEE method
 
 	@Override
 	public List<EmployeeMasterBean> getAllEmployee() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		
+
+		ArrayList<EmployeeMasterBean> list = new ArrayList<EmployeeMasterBean>();
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			try (Connection con = DriverManager
+					.getConnection("jdbc:mysql://localhost:3306/student_ex1?user=root&password=root"))
+			{
+				//	pstmt.setInt(1,empId);
+
+					try (Statement pstmt = con.createStatement();
+							ResultSet rs = pstmt.executeQuery("select * from employee_info ei, "
+							+ "employee_company_info ec, employee_personal_info ep,employee_designation_info"
+							+ " ed,"
+							+ " employee_address_info ea where ei.id=ec.id and ei.id=ep.id and ei.id=ed.id "
+							+ "and ei.id=ea.id");)
+					{
+						while(rs.next())
+						{
+							
+							EmployeeMasterBean data=new EmployeeMasterBean();
+							
+//							System.out.println("student found table1");
+							data.getEmpInfoBean().setId(rs.getString("id"));
+							data.getEmpInfoBean().setFirstname(rs.getString("firstname"));
+							data.getEmpInfoBean().setLastname(rs.getString("lastname"));
+							
+							data.getEmpCompanyInfoBean().setDateOfJoining(rs.getString("date_of_joining"));
+							data.getEmpCompanyInfoBean().setExperience(rs.getInt("experience"));
+							data.getEmpCompanyInfoBean().setLastCompanyName(rs.getString("last_company_name"));
+                          
+                            data.getEmpPersonalInfoBean().setDateOfBirth(rs.getString("date_of_birth"));
+							data.getEmpPersonalInfoBean().setPhNumber(rs.getInt("phone_no"));
+							data.getEmpPersonalInfoBean().setEmailId(rs.getString("email_id"));
+							
+							data.getEmpDesignationInfoBean().setDesignation(rs.getString("designation"));
+							data.getEmpDesignationInfoBean().setCostTocompany(rs.getInt("cost_to_company"));
+							
+							data.getEmpAddressInfoBean().setAddress1(rs.getString("address1"));
+							data.getEmpAddressInfoBean().setAddress2(rs.getString("address2"));
+							data.getEmpAddressInfoBean().setCity(rs.getString("city"));
+							data.getEmpAddressInfoBean().setPincode(rs.getInt("pincode"));
+							list.add(data);
+							System.out.println("values are set");
+							
+						}//end of while
+					}
+			}
+		}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		return list;
+	}//end of getAllEmployees method
 
 	@Override
 	public boolean updateEmployee(EmployeeMasterBean bean)
@@ -96,33 +254,33 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				System.out.println("connection done");
 				pstmt1.setString(1, bean.getEmpInfoBean().getFirstname());
 				pstmt1.setString(1,bean.getEmpInfoBean().getLastname());
-				pstmt1.setInt(2,bean.getEmpInfoBean().getId());
+				pstmt1.setString(2,bean.getEmpInfoBean().getId());
 				System.out.println("setting values1 done");
 				
 				
 				pstmt2.setString(1, bean.getEmpCompanyInfoBean().getDateOfJoining());
 				pstmt2.setInt(1, bean.getEmpCompanyInfoBean().getExperience());
 				pstmt2.setString(1, bean.getEmpCompanyInfoBean().getLastCompanyName());
-				pstmt2.setInt(2, bean.getEmpCompanyInfoBean().getId());
+				pstmt2.setString(2, bean.getEmpCompanyInfoBean().getId());
 				System.out.println("setting values2 done");	
 				
 				pstmt3.setString(1, bean.getEmpPersonalInfoBean().getDateOfBirth());
 				pstmt3.setInt(1,  bean.getEmpPersonalInfoBean().getPhNumber());
 				pstmt3.setString(1,  bean.getEmpPersonalInfoBean().getEmailId());
-				pstmt3.setInt(2, bean.getEmpPersonalInfoBean().getId());
+				pstmt3.setString(2, bean.getEmpPersonalInfoBean().getId());
 				System.out.println("setting values3 done");
 				
 				
 				pstmt4.setString(1, bean.getEmpDesignationInfoBean().getDesignation());
 				pstmt4.setInt(1, bean.getEmpDesignationInfoBean().getCostTocompany());
-				pstmt4.setInt(2, bean.getEmpDesignationInfoBean().getId());
+				pstmt4.setString(2, bean.getEmpDesignationInfoBean().getId());
 				System.out.println("setting values4 done");
 				
 				pstmt5.setString(1, bean.getEmpAddressInfoBean().getAddress1());
 				pstmt5.setString(1, bean.getEmpAddressInfoBean().getAddress2());
 				pstmt5.setString(1,  bean.getEmpAddressInfoBean().getCity());
 				pstmt5.setInt(1,  bean.getEmpAddressInfoBean().getPincode());
-				pstmt5.setInt(2,bean.getEmpAddressInfoBean().getId());
+				pstmt5.setString(2,bean.getEmpAddressInfoBean().getId());
 				System.out.println("setting values5 done");
 				
 				
@@ -140,7 +298,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 					count5>0 ) {
 					check = true;
 					con.commit();
-				}//end of if
+				}//end of if block
 				}
 			}
 		catch (Exception e) {
