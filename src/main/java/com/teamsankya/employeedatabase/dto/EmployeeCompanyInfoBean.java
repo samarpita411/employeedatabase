@@ -3,7 +3,7 @@ package com.teamsankya.employeedatabase.dto;
 public class EmployeeCompanyInfoBean {
 	private int id;
 	private String dateOfJoining;
-	private String experience;
+	private int experience;
 	private String lastCompanyName;
 	
 	public int getId() {
@@ -18,10 +18,10 @@ public class EmployeeCompanyInfoBean {
 	public void setDateOfJoining(String dateOfJoining) {
 		this.dateOfJoining = dateOfJoining;
 	}
-	public String getExperience() {
+	public int getExperience() {
 		return experience;
 	}
-	public void setExperience(String experience) {
+	public void setExperience(int experience) {
 		this.experience = experience;
 	}
 	public String getLastCompanyName() {
