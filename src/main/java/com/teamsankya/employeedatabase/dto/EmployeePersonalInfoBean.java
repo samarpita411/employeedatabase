@@ -1,16 +1,16 @@
 package com.teamsankya.employeedatabase.dto;
 
-public class EmployeePersonalInfoBean {
-	private int id;
+public class EmployeePersonalInfoBean{
+	private String id;
 	private String dateOfBirth;
 	private int phNumber;
 	private String emailId;
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(String string) {
+		this.id = string;
 	}
 	public String getDateOfBirth() {
 		return dateOfBirth;

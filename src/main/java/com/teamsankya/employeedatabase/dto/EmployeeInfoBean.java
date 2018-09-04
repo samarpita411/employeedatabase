@@ -2,15 +2,15 @@ package com.teamsankya.employeedatabase.dto;
 
 public class EmployeeInfoBean
 {
-	private int id;
+	private String id;
 	private String firstname;
 	private String lastname;
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(String string) {
+		this.id = string;
 	}
 	public String getFirstname() {
 		return firstname;
