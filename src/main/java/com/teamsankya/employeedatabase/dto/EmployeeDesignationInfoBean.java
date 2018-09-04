@@ -4,6 +4,7 @@ public class EmployeeDesignationInfoBean {
 	private int id;
 	private String designation;
 	private String costToCompany;
+	
 	public int getId() {
 		return id;
 	}

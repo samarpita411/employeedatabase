@@ -7,7 +7,7 @@ import com.teamsankya.employeedatabase.dto.EmployeeMasterBean;
 public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 
 	@Override
-	public boolean createEmployee(EmployeeMasterBean empMasterBean) {
+	public boolean createEmployee(EmployeeMasterBean bean) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -25,7 +25,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public boolean updateEmployee(EmployeeMasterBean empMasterBean) {
+	public boolean updateEmployee(EmployeeMasterBean bean) {
 		// TODO Auto-generated method stub
 		return false;
 	}

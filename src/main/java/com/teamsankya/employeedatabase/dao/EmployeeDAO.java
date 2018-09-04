@@ -6,10 +6,10 @@ import com.teamsankya.employeedatabase.dto.EmployeeMasterBean;
 
 public interface EmployeeDAO 
 {
-	public boolean createEmployee(EmployeeMasterBean empMasterBean);
+	public boolean createEmployee(EmployeeMasterBean bean);
 	public EmployeeMasterBean getEmployee(int empId);
 	public List<EmployeeMasterBean> getAllEmployee();
-	public boolean updateEmployee(EmployeeMasterBean empMasterBean );
+	public boolean updateEmployee(EmployeeMasterBean bean );
 	public boolean deleteEmployee(int empId);
 	
 

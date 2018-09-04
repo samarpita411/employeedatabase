@@ -6,7 +6,7 @@ public class EmployeeAddressInfoBean
 	private String address1;
 	private String address2;
 	private String city;
-	private String pincode;
+	private int pincode;
 	
 	public int getId() {
 		return id;
@@ -32,12 +32,14 @@ public class EmployeeAddressInfoBean
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getPincode() {
+	public int getPincode() {
 		return pincode;
 	}
-	public void setPincode(String pincode) {
+	public void setPincode(int pincode) {
 		this.pincode = pincode;
 	}
+
+	
 	
 
 }
