@@ -71,109 +71,63 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public EmployeeMasterBean getEmployee(int empId) {
+	public EmployeeMasterBean searchEmployee(int empId) {
 		
-		EmployeeMasterBean bean = new EmployeeMasterBean();
-		EmployeeInfoBean empInfo=new EmployeeInfoBean();
-		EmployeeCompanyInfoBean empCompanyInfo=new EmployeeCompanyInfoBean();
-		EmployeePersonalInfoBean empPersonalInfo=new EmployeePersonalInfoBean();
-		EmployeeDesignationInfoBean empDesignationInfo=new EmployeeDesignationInfoBean();
-		EmployeeAddressInfoBean empAddressInfo=new EmployeeAddressInfoBean();
-		
-		
+		EmployeeMasterBean data = new EmployeeMasterBean();
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			try (Connection con = DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/student_ex1?user=root&password=root")) {
-				try (PreparedStatement pstmt1 = con.prepareStatement("select * from employee_info where regno=?");
-					 PreparedStatement pstmt2 = con.prepareStatement("select * from employee_company_info where regno=?");
-					 PreparedStatement pstmt3 = con.prepareStatement("select * from employee_personal_info where regno=?");
-					 PreparedStatement pstmt4 = con.prepareStatement("select * from employee_designation_info where regno=?");						
-					 PreparedStatement pstmt5 = con.prepareStatement("select * from employee_address_info where regno=?");)
+					.getConnection("jdbc:mysql://localhost:3306/employee_db?user=root&password=root")) {
+				try (PreparedStatement pstmt = con.prepareStatement("select * from employee_info ei, "
+						+ "previous_company_info ec, employee_personal_info ep,current_company_info ed,"
+						+ " employee_address_info ea" + 
+						" where ei.id=ec.id and ei.id=ep.id and ei.id=ed.id and ei.id=ea.id and ei.id=?");)
 
 				{
-					pstmt1.setInt(1,empId);
+					pstmt.setInt(1,empId);
 
-					try (ResultSet rs1 = pstmt1.executeQuery()) {
-						if (rs1.next()) {
-							System.out.println("student found table1");
-							empInfo.setId(rs1.getString("id"));
-							empInfo.setFirstname(rs1.getString("firstname"));
-							empInfo.setLastname(rs1.getString("lastname"));
+					try (ResultSet rs = pstmt.executeQuery()) {
+						if (rs.next()) {
 							
-
-						}
-
-					}
-					pstmt2.setInt(1,empId);
-					try (ResultSet rs2 = pstmt2.executeQuery()) {
-						if (rs2.next()) {
-							System.out.println("student found table2");
-							empCompanyInfo.setId(rs2.getString("id"));
-							empCompanyInfo.setDateOfJoining(rs2.getString("date_of_joining"));
-							empCompanyInfo.setExperience(rs2.getInt("experience"));
-							empCompanyInfo.setLastCompanyName(rs2.getString("last_company_name"));
-						}
-
-					}
-
-					pstmt3.setInt(1, empId);
-					try (ResultSet rs3 = pstmt3.executeQuery()) {
-						if (rs3.next()) {
-							System.out.println("student found table3");
-							empPersonalInfo.setId(rs3.getString("id"));
-							empPersonalInfo.setDateOfBirth(rs3.getString("date_of_birth"));
-							empPersonalInfo.setPhNumber(rs3.getInt("phone_no"));
-							empPersonalInfo.setEmailId(rs3.getString("email_id"));
-						}
-					}
-					
-					pstmt4.setInt(1,empId);
-					try (ResultSet rs4 = pstmt4.executeQuery()) {
-						if (rs4.next()) {
-							System.out.println("student found table4");
-							empDesignationInfo.setId(rs4.getString("id"));
-							empDesignationInfo.setDesignation(rs4.getString("designation"));
-							empDesignationInfo.setCostTocompany(rs4.getInt("cost_to_company"));
 							
-						}
-
-					}
-					
-					pstmt5.setInt(1,empId);
-					try (ResultSet rs5 = pstmt5.executeQuery()) {
-						if (rs5.next()) {
-							System.out.println("student found table5");
-							empAddressInfo.setId(rs5.getString("id"));
-							empAddressInfo.setAddress1(rs5.getString("address1"));
-							empAddressInfo.setAddress2(rs5.getString("address2"));
-							empAddressInfo.setCity(rs5.getString("city"));
-							empAddressInfo.setPincode(rs5.getInt("pincode"));
 							
-						}
-
-					}
-					
-					
-					bean.setEmpInfoBean(empInfo);
-					bean.setEmpCompanyInfoBean(empCompanyInfo);
-					bean.setEmpPersonalInfoBean(empPersonalInfo);
-					bean.setEmpDesignationInfoBean(empDesignationInfo);
-					bean.setEmpCompanyInfoBean(empCompanyInfo);
-
+//							System.out.println("student found table1");
+							data.getEmpInfoBean().setId(rs.getString("id"));
+							data.getEmpInfoBean().setFirstname(rs.getString("firstname"));
+							data.getEmpInfoBean().setLastname(rs.getString("lastname"));
+							
+							data.getEmpCompanyInfoBean().setDateOfJoining(rs.getString("date_of_joining"));
+							data.getEmpCompanyInfoBean().setExperience(rs.getInt("experience"));
+							data.getEmpCompanyInfoBean().setLastCompanyName(rs.getString("last_company_name"));
+                          
+                            data.getEmpPersonalInfoBean().setDateOfBirth(rs.getString("date_of_birth"));
+							data.getEmpPersonalInfoBean().setPhNumber(rs.getInt("phone_no"));
+							data.getEmpPersonalInfoBean().setEmailId(rs.getString("email_id"));
+							
+							data.getEmpDesignationInfoBean().setDesignation(rs.getString("designation"));
+							data.getEmpDesignationInfoBean().setCostTocompany(rs.getInt("cost_to_company"));
+							
+							data.getEmpAddressInfoBean().setAddress1(rs.getString("address1"));
+							data.getEmpAddressInfoBean().setAddress2(rs.getString("address2"));
+							data.getEmpAddressInfoBean().setCity(rs.getString("city"));
+							data.getEmpAddressInfoBean().setPincode(rs.getInt("pincode"));
+							
+							System.out.println("values are set");
+							
+						}//end of if block
+					}			
 				}
-
-			}
+				}
 	} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return bean;
+		return data;
 	}//end of GETEMPLOYEE method
 
 	@Override
-	public List<EmployeeMasterBean> getAllEmployee() {
+	public List<EmployeeMasterBean> searchAllEmployee() {
 		
 
 		ArrayList<EmployeeMasterBean> list = new ArrayList<EmployeeMasterBean>();
@@ -181,13 +135,13 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			try (Connection con = DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/student_ex1?user=root&password=root"))
+					.getConnection("jdbc:mysql://localhost:3306/employee_db?user=root&password=root"))
 			{
 				//	pstmt.setInt(1,empId);
 
 					try (Statement pstmt = con.createStatement();
 							ResultSet rs = pstmt.executeQuery("select * from employee_info ei, "
-							+ "employee_company_info ec, employee_personal_info ep,employee_designation_info"
+							+ "previous_company_info ec, employee_personal_info ep,current_company_info"
 							+ " ed,"
 							+ " employee_address_info ea where ei.id=ec.id and ei.id=ep.id and ei.id=ed.id "
 							+ "and ei.id=ea.id");)
@@ -240,15 +194,11 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("driver loaded");
 			try (Connection con = DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/student_ex1?user=root&password=root");
+					.getConnection("jdbc:mysql://localhost:3306/employee_db?user=root&password=root");
 					PreparedStatement pstmt1 = con.prepareStatement("update employee_info set firstname=?,lastname=?  where id=?");
-					
-					PreparedStatement pstmt2 = con.prepareStatement("update employee_company_info set date_of_joining=?,experience=?,last_company_name=? where id=?");
-					
+					PreparedStatement pstmt2 = con.prepareStatement("update previous_company_info set date_of_joining=?,experience=?,last_company_name=? where id=?");
 					PreparedStatement pstmt3 = con.prepareStatement("update employee_personal_info set date_of_birth=?,phone_no=?,email_id  =? where id=?");
-					
-					PreparedStatement pstmt4= con.prepareStatement("update employee_designation_info set designation=?,cost_to_company=? where id=?");
-					
+					PreparedStatement pstmt4= con.prepareStatement("update current_company_info_info set designation=?,cost_to_company=? where id=?");
 					PreparedStatement pstmt5= con.prepareStatement("update employee_address_info set address1=?,address2=?,city=?,pincode=?  where id=?");){
 			
 				System.out.println("connection done");
@@ -314,13 +264,13 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			try (Connection con = DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/student_ex1?user=root&password=root")) {
+					.getConnection("jdbc:mysql://localhost:3306/employee_db?user=root&password=root")) {
 				con.setAutoCommit(false);
 				
 				try (PreparedStatement pstmt1 = con.prepareStatement("delete from employee_info where id=?  ");
-					 PreparedStatement pstmt2 = con.prepareStatement("delete from employee_company_info where id=? ");
+					 PreparedStatement pstmt2 = con.prepareStatement("delete from previous_company_info where id=? ");
 					 PreparedStatement pstmt3 = con.prepareStatement("delete from employee_personal_info where id=? ");
-					 PreparedStatement pstmt4 = con.prepareStatement("delete from employee_designation_info where id=? ");
+					 PreparedStatement pstmt4 = con.prepareStatement("delete from current_company_info where id=? ");
 				     PreparedStatement pstmt5 = con.prepareStatement("delete from employee_address_info where id=? ");) {
 
 					pstmt1.setInt(1, empId);

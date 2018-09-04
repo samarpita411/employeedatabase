@@ -7,6 +7,7 @@ public class EmployeeMasterBean
 	private EmployeeAddressInfoBean empAddressInfoBean= new EmployeeAddressInfoBean();
 	private EmployeeCompanyInfoBean empCompanyInfoBean=new EmployeeCompanyInfoBean();
 	private EmployeeDesignationInfoBean empDesignationInfoBean= new EmployeeDesignationInfoBean();
+	
 	public EmployeeInfoBean getEmpInfoBean() {
 		return empInfoBean;
 	}

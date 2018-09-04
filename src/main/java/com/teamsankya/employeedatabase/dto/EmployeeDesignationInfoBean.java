@@ -4,7 +4,12 @@ public class EmployeeDesignationInfoBean {
 	private String id;
 	private String designation;
 	private int costToCompany;
+<<<<<<< HEAD
 	public String getId() {
+=======
+	
+	public int getId() {
+>>>>>>> 6e2b3b21d72891d47fabe6ec89b6664039ff9980
 		return id;
 	}
 	public void setId(String string) {

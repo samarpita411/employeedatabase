@@ -38,6 +38,8 @@ public class EmployeeAddressInfoBean
 	public void setPincode(int pincode) {
 		this.pincode = pincode;
 	}
+
+	
 	
 
 }

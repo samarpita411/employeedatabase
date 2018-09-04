@@ -9,4 +9,40 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+  <servlet-name>CreateEmployee</servlet-name>
+  <servlet-class>com.teamsankya.employeedatabase.controller.CreateEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>CreateEmployee</servlet-name>
+  <url-pattern>/create</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>UpdateEmployee</servlet-name>
+  <servlet-class>com.teamsankya.employeedatabase.controller.UpdateEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>UpdateEmployee</servlet-name>
+  <url-pattern>/update</url-pattern>
+ </servlet-mapping>
+ 
+  <servlet>
+  <servlet-name>DeleteEmployee</servlet-name>
+  <servlet-class>com.teamsankya.employeedatabase.controller.DeleteEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>DeleteEmployee</servlet-name>
+  <url-pattern>/delete</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+  <servlet-name>GetEmployee</servlet-name>
+  <servlet-class>com.teamsankya.employeedatabase.controller.GetEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>GetEmployee</servlet-name>
+  <url-pattern>/search</url-pattern>
+ </servlet-mapping>
+
 </web-app>
