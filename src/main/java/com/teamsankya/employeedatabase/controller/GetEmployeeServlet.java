@@ -22,21 +22,21 @@ public class GetEmployeeServlet extends HttpServlet {
     		.daoGenerator();
     EmployeeMasterBean bean = dao.getEmployee(empId);
     PrintWriter out = resp.getWriter();
-    out.println(bean.getEmpInfoBean().getId());
-    out.println(bean.getEmpInfoBean().getFirstname());
-    out.println(bean.getEmpInfoBean().getLastname());
-    out.println(bean.getEmpPersonalInfoBean().getDateOfBirth());
-    out.println(bean.getEmpPersonalInfoBean().getEmailId());
-    out.println(bean.getEmpPersonalInfoBean().getPhNumber());
-    out.println(bean.getEmpAddressInfoBean().getAddress1());
-    out.println(bean.getEmpAddressInfoBean().getAddress2());
-    out.println(bean.getEmpAddressInfoBean().getCity());
-    out.println(bean.getEmpAddressInfoBean().getPincode());
-    out.println(bean.getEmpCompanyInfoBean().getDateOfJoining());
-    out.println(bean.getEmpCompanyInfoBean().getExperience());
-    out.println(bean.getEmpCompanyInfoBean().getLastCompanyName());
-    out.println(bean.getEmpDesignationInfoBean().getDesignation());
-    out.println(bean.getEmpDesignationInfoBean().getCostTocompany());
+    out.println("Employee Id "+bean.getEmpInfoBean().getId());
+    out.println("First name "+bean.getEmpInfoBean().getFirstname());
+    out.println("Last name "+bean.getEmpInfoBean().getLastname());
+    out.println("Date of birth "+bean.getEmpPersonalInfoBean().getDateOfBirth());
+    out.println("Email "+bean.getEmpPersonalInfoBean().getEmailId());
+    out.println("Mobile number "+bean.getEmpPersonalInfoBean().getPhNumber());
+    out.println("Address1 "+bean.getEmpAddressInfoBean().getAddress1());
+    out.println("Address2 "+bean.getEmpAddressInfoBean().getAddress2());
+    out.println("City "+bean.getEmpAddressInfoBean().getCity());
+    out.println("Pincode "+bean.getEmpAddressInfoBean().getPincode());
+    out.println("Date of joining "+bean.getEmpCompanyInfoBean().getDateOfJoining());
+    out.println("Experience "+bean.getEmpCompanyInfoBean().getExperience());
+    out.println("Last company name "+bean.getEmpCompanyInfoBean().getLastCompanyName());
+    out.println("Designation "+bean.getEmpDesignationInfoBean().getDesignation());
+    out.println("Cost to company "+bean.getEmpDesignationInfoBean().getCostTocompany());
 
 
     
