@@ -1,15 +1,19 @@
  package com.teamsankya.employeedatabase.dto;
 
 public class EmployeeDesignationInfoBean {
-	private int id;
+	private String id;
 	private String designation;
 	private int costToCompany;
+<<<<<<< HEAD
 	
 	public int getId() {
+=======
+	public String getId() {
+>>>>>>> branch 'master' of https://github.com/samarpita411/employeedb.git
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(String string) {
+		this.id = string;
 	}
 	public String getDesignation() {
 		return designation;

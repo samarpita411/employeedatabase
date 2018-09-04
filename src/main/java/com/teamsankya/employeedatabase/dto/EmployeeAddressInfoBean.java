@@ -2,17 +2,17 @@ package com.teamsankya.employeedatabase.dto;
 
 public class EmployeeAddressInfoBean
 {
-	private int id;
+	private String id;
 	private String address1;
 	private String address2;
 	private String city;
 	private int pincode;
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(String string) {
+		this.id = string;
 	}
 	public String getAddress1() {
 		return address1;
