@@ -44,7 +44,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 //				pstmt3.setString(3,bean.getGuardian_info_bean().getGmnm());
 //				pstmt3.setString(4,bean.getGuardian_info_bean().getGlnm());
 //				System.out.println("setting values3 done");
-//				
+//				fdgddxsfvdzf
 //				pstmt1.execute();
 //				pstmt2.execute();
 //				pstmt3.execute();
@@ -135,7 +135,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				int count5= pstmt5.executeUpdate();
 				
 				System.out.println("query execution done");
-				
+				System.out.println("hsdfbshfjsdhkj");
 				if (count1 > 0 && count2 > 0 && count3 > 0 && count4>0 && 
 					count5>0 ) {
 					check = true;
