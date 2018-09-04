@@ -34,7 +34,7 @@ public class GetEmployeeServlet extends HttpServlet {
     out.println("Pincode "+bean.getEmpAddressInfoBean().getPincode());
     out.println("Date of joining "+bean.getEmpCompanyInfoBean().getDateOfJoining());
     out.println("Experience "+bean.getEmpCompanyInfoBean().getExperience());
-    out.println("Last company name "+bean.getEmpCompanyInfoBean().getLastCompanyName());
+    out.println("Last company "+bean.getEmpCompanyInfoBean().getLastCompanyName());
     out.println("Designation "+bean.getEmpDesignationInfoBean().getDesignation());
     out.println("Cost to company "+bean.getEmpDesignationInfoBean().getCostTocompany());
 
