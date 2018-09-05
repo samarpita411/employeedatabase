@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h1>Profile deleted</h1><br>
+	<a href='./index.jsp'>Click here for Home Page</a>
 </body>
 </html>

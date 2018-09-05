@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h1> Data inserted</h1><br>
+	<a href='./index.jsp'>Click here for Home Page</a>
+	
 </body>
 </html>
