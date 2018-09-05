@@ -17,13 +17,10 @@ public class DeleteEmployeeServlet extends HttpServlet {
 		EmployeeDAO dao = EmployeeServiceManager
 				.getInstance()
 				.daoGenerator();
-		dao.deleteEmployee(empId);
-		System.out.println("data deleted");
-
-		System.out.println("sending the response now");
-
-		req.getRequestDispatcher("DeleteEmployeeRespons.jsp").forward(req, resp);
-		System.out.println("response done");
+		boolean b =dao.deleteEmployee(empId);
+		if(b==true)
+        req.getRequestDispatcher("delete_response.jsp").forward(req, resp);
+		req.getRequestDispatcher("delete_response1").forward(req, resp);
 
 
 	}

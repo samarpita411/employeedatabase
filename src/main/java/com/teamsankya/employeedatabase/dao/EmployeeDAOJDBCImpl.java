@@ -7,17 +7,45 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Random;
 
 import com.teamsankya.employeedatabase.dto.EmployeeAddressInfoBean;
-import com.teamsankya.employeedatabase.dto.EmployeeDesignationInfoBean;
 import com.teamsankya.employeedatabase.dto.EmployeeInfoBean;
 import com.teamsankya.employeedatabase.dto.EmployeeMasterBean;
 import com.teamsankya.employeedatabase.dto.EmployeePersonalInfoBean;
 import com.teamsankya.employeedatabase.factory.GenerateRandomId;
-
+import com.teamsankya.employeedatabase.dto.CurrentCompanyInfoBean;
+import com.teamsankya.employeedatabase.dto.PreviousCompanyInfoBean;
 public class EmployeeDAOJDBCImpl implements EmployeeDAO {
-
+    private String idGenerator() {
+		char[] idChar = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p',
+				'q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9'};
+		String id = " ";
+		Random random = new Random();
+		for(int i=0;i<8;i++ )
+		{
+			int index = random.nextInt(idChar.length);
+			id = id+idChar[index];
+		}
+    	return id;
+    	
+    }
+    private String uniqueId()
+    {
+    	
+    	EmployeeMasterBean bean = null;
+    	String id = null;
+    	bean = searchEmployee(id);
+    	do
+    	{
+    	id= idGenerator();
+    	EmployeeMasterBean bean = searchEmployee(id);
+    	}
+    	while(bean == null);
+    	{
+		return null;
+         }
+    }
 	@Override
 	public boolean createEmployee(EmployeeMasterBean bean)  {
 		
@@ -84,7 +112,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 	
 
 	@Override
-	public EmployeeMasterBean searchEmployee(int empId) {
+	public EmployeeMasterBean searchEmployee(String empId) {
 		
 		EmployeeMasterBean data = new EmployeeMasterBean();
 		
@@ -98,7 +126,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 						" where ei.id=ec.id and ei.id=ep.id and ei.id=ed.id and ei.id=ea.id and ei.id=?");)
 
 				{
-					pstmt.setInt(1,empId);
+					pstmt.setString(1,empId);
 
 					try (ResultSet rs = pstmt.executeQuery()) {
 						if (rs.next()) {
@@ -311,6 +339,11 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 		}
 		return check;
 	}//end of deleteEmployee method
+	@Override
+	public boolean deleteEmployee(String empId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }//end of class
 

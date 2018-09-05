@@ -1,6 +1,8 @@
 package com.teamsankya.employeedatabase.dto;
 
-public class EmployeeMasterBean 
+public class EmployeeMasterBean
+{
+	private EmployeeInfoBean empInfoBean = new EmployeeInfoBean();
 	private EmployeePersonalInfoBean empPersonalInfoBean=new EmployeePersonalInfoBean();
 	private EmployeeAddressInfoBean empAddressInfoBean= new EmployeeAddressInfoBean();
 	private PreviousCompanyInfoBean previousCompanyInfoBean=new PreviousCompanyInfoBean();
