@@ -14,7 +14,8 @@ import com.teamsankya.employeedatabase.dto.EmployeeInfoBean;
 import com.teamsankya.employeedatabase.dto.EmployeeMasterBean;
 import com.teamsankya.employeedatabase.dto.EmployeePersonalInfoBean;
 import com.teamsankya.employeedatabase.factory.GenerateRandomId;
-
+import com.teamsankya.employeedatabase.dto.CurrentCompanyInfoBean;
+import com.teamsankya.employeedatabase.dto.PreviousCompanyInfoBean;
 public class EmployeeDAOJDBCImpl implements EmployeeDAO {
     private String idGenerator() {
 		char[] idChar = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p',
@@ -297,7 +298,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 	}//end of updateEmployee method
 
 	@Override
-	public boolean deleteEmployee(int empId) {
+	public boolean deleteEmployee(String empId) {
 		boolean check = false;
 		
 		try {
@@ -338,6 +339,11 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 		}
 		return check;
 	}//end of deleteEmployee method
+	@Override
+	public boolean deleteEmployee(String empId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }//end of class
 

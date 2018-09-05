@@ -63,9 +63,10 @@ public class UpdateEmployeeServlet extends HttpServlet {
 				.getInstance()
 				.daoGenerator();
 		
-		dao.updateEmployee(employeeMasterBean);
-		req.getRequestDispatcher("yet to add response.jsp").forward(req, resp);		
-
+		boolean b = dao.updateEmployee(employeeMasterBean);
+		if(b==true)
+		req.getRequestDispatcher("update_response.jsp").forward(req, resp);		
+		req.getRequestDispatcher("update_response1.jsp").forward(req, resp);		
 		
 		
 	}
