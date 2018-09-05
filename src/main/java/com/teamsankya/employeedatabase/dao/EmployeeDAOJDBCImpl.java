@@ -140,7 +140,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 							data.getPreviousCompanyInfoBean().setLastCompanyName(rs.getString("last_company_name"));
                           
                             data.getEmpPersonalInfoBean().setDateOfBirth(rs.getString("date_of_birth"));
-							data.getEmpPersonalInfoBean().setPhNumber(rs.getInt("phone_no"));
+							data.getEmpPersonalInfoBean().setPhNumber(rs.getLong("phone_no"));
 							data.getEmpPersonalInfoBean().setEmailId(rs.getString("email_id"));
 							
 							data.getCurrentCompanyInfoBean().setDateOfJoining(rs.getString("date_of_joining"));

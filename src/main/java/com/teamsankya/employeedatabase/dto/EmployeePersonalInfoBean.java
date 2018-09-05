@@ -21,8 +21,8 @@ public class EmployeePersonalInfoBean{
 	public int getPhNumber() {
 		return phNumber;
 	}
-	public void setPhNumber(int phNumber) {
-		this.phNumber = phNumber;
+	public void setPhNumber() {
+		this.phNumber=phNumber ;
 	}
 	public String getEmailId() {
 		return emailId;
