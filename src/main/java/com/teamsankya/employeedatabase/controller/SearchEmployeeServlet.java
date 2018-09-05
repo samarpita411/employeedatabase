@@ -17,12 +17,12 @@ import com.teamsankya.employeedatabase.factory.EmployeeServiceManager;
 public class SearchEmployeeServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String empId = req.getParameter("empId");
+		String name = req.getParameter("name");
 		EmployeeDAO dao= EmployeeServiceManager
 				.getInstance()
 				.daoGenerator();
-        dao.searchEmployee(empId);
-        req.getRequestDispatcher("View_search.jsp").forward(req, resp);
+        dao.searchEmployee(name);
+        req.getRequestDispatcher("search_response.jsp").forward(req, resp);
 	}
 }
 
