@@ -20,7 +20,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
     private String idGenerator() {
 		char[] idChar = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p',
 				'q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9'};
-		String id = " ";
+		String id = "";
 		Random random = new Random();
 		for(int i=0;i<8;i++ )
 		{
@@ -35,23 +35,20 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
     	
     	EmployeeMasterBean bean = null;
     	String id = null;
-    	bean = searchEmployee(id);
     	do
     	{
     	id= idGenerator();
-    	EmployeeMasterBean bean = searchEmployee(id);
+    	bean = searchEmployee(id);
     	}
-    	while(bean == null);
-    	{
-		return null;
-         }
+    	while(bean != null);
+		return id;
     }
 	@Override
-	public boolean createEmployee(EmployeeMasterBean bean)  {
+	public String createEmployee(EmployeeMasterBean bean)  {
 		
-    String id=GenerateRandomId.randomEmployeeIdGenerator(8);
+    //String id=GenerateRandomId.randomEmployeeIdGenerator(8);
 	//to generate random id from class present in factory pkg in employeedatabase project
-		
+		String id = uniqueId();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("driver loaded");
@@ -102,12 +99,13 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				pstmt2.execute();
 				pstmt3.execute();
 				System.out.println("query execution done");
+				return id;
 				}
 			}
 		catch (Exception e) {
 			// TODO: handle exception
 		}
-		return false;
+		return id;
 	}//end of createEmployee method
 	
 
