@@ -59,26 +59,15 @@ public class CreateEmployeeServlet extends HttpServlet {
         employeeMasterBean.setCurrentCompanyInfoBean(currentCompanyInfoBean);
         
         EmployeeDAO dao = EmployeeServiceManager.getInstance().daoGenerator();
-        System.out.println("calling create method");
+//        System.out.println("calling create method");
         dao.createEmployee(employeeMasterBean);
-        System.out.println("Create method called");
+//        System.out.println("Create method called");
         req.getRequestDispatcher("response.jsp").forward(req, resp);		
 
        
 		}
 
 }
-
-//List<Book> listBook = bookDAO.listAllBooks();
-//    request.setAttribute("listBook", listBook);
-//    RequestDispatcher dispatcher = request.getRequestDispatcher("BookList.jsp");
-//    dispatcher.forward(request, response);
-
-
-
-
-
-
 
 
 

@@ -17,16 +17,14 @@ import com.teamsankya.employeedatabase.factory.EmployeeServiceManager;
 public class SearchEmployeeServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
-		List<EmployeeMasterBean> SearchEmployeeServlet = EmployeeDAO.  
-				    EmployeeDAO dao = EmployeeServiceManager
-				  		.getInstance()
-			    		.daoGenerator();
-				    EmployeeMasterBean bean = dao.getEmployee();
-
-
-
-
+		String empId = req.getParameter("empId");
+		EmployeeDAO dao= EmployeeServiceManager
+				.getInstance()
+				.daoGenerator();
+        dao.searchEmployee(empId);
+        req.getRequestDispatcher("View_search.jsp").forward(req, resp);
 	}
 }
+
+	
+

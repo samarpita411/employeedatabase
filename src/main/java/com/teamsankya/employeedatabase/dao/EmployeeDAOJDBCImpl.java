@@ -270,7 +270,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 	}//end of updateEmployee method
 
 	@Override
-	public boolean deleteEmployee(int empId) {
+	public boolean deleteEmployee(String empId) {
 		boolean check = false;
 		
 		try {
@@ -285,11 +285,11 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 					 PreparedStatement pstmt4 = con.prepareStatement("delete from current_company_info where id=? ");
 				     PreparedStatement pstmt5 = con.prepareStatement("delete from employee_address_info where id=? ");) {
 
-					pstmt1.setInt(1, empId);
-					pstmt2.setInt(1, empId);
-					pstmt3.setInt(1, empId);
-					pstmt4.setInt(1, empId);
-					pstmt5.setInt(1, empId);
+					pstmt1.setString(1, empId);
+					pstmt2.setString(1, empId);
+					pstmt3.setString(1, empId);
+					pstmt4.setString(1, empId);
+					pstmt5.setString(1, empId);
 					int count1 = pstmt1.executeUpdate();
 					int count2 = pstmt2.executeUpdate();
 					int count3 = pstmt3.executeUpdate();
