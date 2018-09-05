@@ -66,3 +66,24 @@ public class CreateEmployeeServlet extends HttpServlet {
 		}
 
 }
+
+//List<Book> listBook = bookDAO.listAllBooks();
+//    request.setAttribute("listBook", listBook);
+//    RequestDispatcher dispatcher = request.getRequestDispatcher("BookList.jsp");
+//    dispatcher.forward(request, response);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
