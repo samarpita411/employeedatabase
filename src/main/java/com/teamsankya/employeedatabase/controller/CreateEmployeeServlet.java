@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.teamsankya.employeedatabase.dao.EmployeeDAO;
 import com.teamsankya.employeedatabase.dto.CurrentCompanyInfoBean;
 import com.teamsankya.employeedatabase.dto.EmployeeAddressInfoBean;
@@ -17,6 +19,7 @@ import com.teamsankya.employeedatabase.dto.PreviousCompanyInfoBean;
 import com.teamsankya.employeedatabase.factory.EmployeeServiceManager;
 
 public class CreateEmployeeServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(CreateEmployeeServlet.class);
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -59,9 +62,9 @@ public class CreateEmployeeServlet extends HttpServlet {
         employeeMasterBean.setCurrentCompanyInfoBean(currentCompanyInfoBean);
         
         EmployeeDAO dao = EmployeeServiceManager.getInstance().daoGenerator();
-//        System.out.println("calling create method");
+        logger.info("calling create method");
           dao.createEmployee(employeeMasterBean);
-//        System.out.println("Create method called");
+        logger.info("Create method called");
         
         req.getRequestDispatcher("create_response.jsp").forward(req, resp);		
         
