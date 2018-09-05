@@ -1,5 +1,6 @@
 package com.teamsankya.employeedatabase.controller;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -28,5 +29,4 @@ public class SearchEmployeeServlet extends HttpServlet {
 
 
 	}
-
 }

@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.teamsankya.employeedatabase.dao.EmployeeDAO;
+import com.teamsankya.employeedatabase.dto.CurrentCompanyInfoBean;
 import com.teamsankya.employeedatabase.dto.EmployeeAddressInfoBean;
-import com.teamsankya.employeedatabase.dto.EmployeeCompanyInfoBean;
-import com.teamsankya.employeedatabase.dto.EmployeeDesignationInfoBean;
 import com.teamsankya.employeedatabase.dto.EmployeeInfoBean;
 import com.teamsankya.employeedatabase.dto.EmployeeMasterBean;
 import com.teamsankya.employeedatabase.dto.EmployeePersonalInfoBean;
+import com.teamsankya.employeedatabase.dto.PreviousCompanyInfoBean;
 import com.teamsankya.employeedatabase.factory.EmployeeServiceManager;
 
 public class CreateEmployeeServlet extends HttpServlet {
@@ -38,23 +38,25 @@ public class CreateEmployeeServlet extends HttpServlet {
 	    employeeAddressInfoBean.setCity(req.getParameter("city"));
 	    employeeAddressInfoBean.setPincode(Integer.parseInt(req.getParameter("pincode")));
 	    
-        EmployeeCompanyInfoBean employeeCompanyInfoBean = new EmployeeCompanyInfoBean();
-        employeeCompanyInfoBean.setId((req.getParameter("id")));
-        employeeCompanyInfoBean.setDateOfJoining(req.getParameter("dateOfJoining"));
-        employeeCompanyInfoBean.setExperience(Integer.parseInt(req.getParameter("experience")));
-        employeeCompanyInfoBean.setLastCompanyName(req.getParameter("lastCompanyName"));
+	    PreviousCompanyInfoBean previousCompanyInfoBean = new PreviousCompanyInfoBean();
+        previousCompanyInfoBean.setId((req.getParameter("id")));
+        previousCompanyInfoBean.setExperience(Integer.parseInt(req.getParameter("experience")));
+        previousCompanyInfoBean.setLastCompanyName(req.getParameter("lastCompanyName"));
         
-        EmployeeDesignationInfoBean employeeDesignationInfoBean = new EmployeeDesignationInfoBean();
-        employeeDesignationInfoBean.setId((req.getParameter("id")));
-        employeeDesignationInfoBean.setDesignation(req.getParameter("designation"));
-        employeeDesignationInfoBean.setCostTocompany(Integer.parseInt(req.getParameter("costToCompany")));
+        CurrentCompanyInfoBean currentCompanyInfoBean = new CurrentCompanyInfoBean();
+        currentCompanyInfoBean.setId(req.getParameter("id"));
+        currentCompanyInfoBean.setDateOfJoining(req.getParameter("dateOfJoining"));
+        currentCompanyInfoBean.setDesignation(req.getParameter("designation"));
+        currentCompanyInfoBean.setCostToCompany(Integer.parseInt(req.getParameter("costToCompany")));
+      
+        
 	    
         EmployeeMasterBean employeeMasterBean = new EmployeeMasterBean();
         employeeMasterBean.setEmpInfoBean(employeeInfoBean);
         employeeMasterBean.setEmpPersonalInfoBean(employeePersonalInfoBean);
         employeeMasterBean.setEmpAddressInfoBean(employeeAddressInfoBean);
-        employeeMasterBean.setEmpCompanyInfoBean(employeeCompanyInfoBean);
-        employeeMasterBean.setEmpDesignationInfoBean(employeeDesignationInfoBean);
+        employeeMasterBean.setPreviousCompanyInfoBean(previousCompanyInfoBean);
+        employeeMasterBean.setCurrentCompanyInfoBean(currentCompanyInfoBean);
         
         EmployeeDAO dao = EmployeeServiceManager.getInstance().daoGenerator();
         System.out.println("calling create method");

@@ -24,5 +24,5 @@ public class EmployeeInfoBean
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
-	
+	 
 }
