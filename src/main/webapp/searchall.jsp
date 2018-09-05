@@ -9,7 +9,7 @@
 <body>
 
     
-    
+    <form action="./search" method="post">
 
        <div class="SearchBar">
             <form>

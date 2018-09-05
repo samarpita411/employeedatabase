@@ -17,6 +17,7 @@ import com.teamsankya.employeedatabase.factory.EmployeeServiceManager;
 public class SearchEmployeeServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		EmployeeMasterBean bean = (EmployeeMasterBean) req.getAttribute("bean");
 		String name = req.getParameter("search");
 		EmployeeDAO dao= EmployeeServiceManager
 				.getInstance()
