@@ -28,7 +28,7 @@ public class UpdateEmployeeServlet extends HttpServlet {
 		EmployeePersonalInfoBean employeePersonalInfoBean = new EmployeePersonalInfoBean();
 	    employeePersonalInfoBean.setId((req.getParameter("id")));
 	    employeePersonalInfoBean.setDateOfBirth(req.getParameter("dateOfBirth"));
-	    employeePersonalInfoBean.setPhNumber(Integer.parseInt(req.getParameter("phNumber")));
+	    employeePersonalInfoBean.setPhNumber(Long.parseLong(req.getParameter("phNumber")));
 	    employeePersonalInfoBean.setEmailId(req.getParameter("emailId"));
 	    
 	    EmployeeAddressInfoBean employeeAddressInfoBean = new EmployeeAddressInfoBean();

@@ -14,14 +14,14 @@
 
 <br>
 
-<a href="home.html"><button style="background-color:dodgerblue;height:50px; width:150px;"><font size=3>Home</font size></button></a>
+<a href="home.jsp"><button style="background-color:dodgerblue;height:50px; width:150px;"><font size=3>Home</font size></button></a>
 
-<a href="create.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Register</font size></button></a>
+<a href="create.jsp"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Register</font size></button></a>
 
-<a href="search.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Search</font size></button></a>
-<a href="update.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Edit</font size></button></a>
+<a href="search.jsp"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Search</font size></button></a>
+<a href="update.jsp"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Edit</font size></button></a>
 
-<a href="delete.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Delete</font size></button></a>
+<a href="delete.jsp"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Delete</font size></button></a>
 <hr>
 </center>
 </hr>

@@ -78,7 +78,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				
 				pstmt3.setString(1,id);
 				pstmt3.setString(2,bean.getEmpPersonalInfoBean().getDateOfBirth());
-				pstmt3.setInt(3,bean.getEmpPersonalInfoBean().getPhNumber());
+				pstmt3.setLong(3,bean.getEmpPersonalInfoBean().getPhNumber());
 				pstmt3.setString(4,bean.getEmpPersonalInfoBean().getEmailId());
 				System.out.println("setting values3 done");
 				
@@ -140,7 +140,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 							data.getPreviousCompanyInfoBean().setLastCompanyName(rs.getString("last_company_name"));
                           
                             data.getEmpPersonalInfoBean().setDateOfBirth(rs.getString("date_of_birth"));
-							data.getEmpPersonalInfoBean().setPhNumber(rs.getInt("phone_no"));
+							data.getEmpPersonalInfoBean().setPhNumber(rs.getLong("phone_no"));
 							data.getEmpPersonalInfoBean().setEmailId(rs.getString("email_id"));
 							
 							data.getCurrentCompanyInfoBean().setDateOfJoining(rs.getString("date_of_joining"));
@@ -253,7 +253,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				System.out.println("setting values2 done");	
 				
 				pstmt3.setString(1,bean.getEmpPersonalInfoBean().getDateOfBirth());
-				pstmt3.setInt(2,bean.getEmpPersonalInfoBean().getPhNumber());
+				pstmt3.setLong(2,bean.getEmpPersonalInfoBean().getPhNumber());
 				pstmt3.setString(3,bean.getEmpPersonalInfoBean().getEmailId());
 				pstmt3.setString(4,bean.getEmpPersonalInfoBean().getId());
 				System.out.println("setting values3 done");

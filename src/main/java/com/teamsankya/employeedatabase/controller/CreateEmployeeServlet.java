@@ -1,6 +1,7 @@
 package com.teamsankya.employeedatabase.controller;
 
 import java.io.IOException;
+import java.math.BigInteger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +34,7 @@ public class CreateEmployeeServlet extends HttpServlet {
 		EmployeePersonalInfoBean employeePersonalInfoBean = new EmployeePersonalInfoBean();
 	    employeePersonalInfoBean.setId((req.getParameter("id")));
 	    employeePersonalInfoBean.setDateOfBirth(req.getParameter("dateOfBirth"));
-	    employeePersonalInfoBean.setPhNumber(Integer.parseInt(req.getParameter("phNumber")));
+	    employeePersonalInfoBean.setPhNumber(Long.parseLong(req.getParameter("phNumber")));
 	    employeePersonalInfoBean.setEmailId(req.getParameter("emailId"));
 	    
 	    
