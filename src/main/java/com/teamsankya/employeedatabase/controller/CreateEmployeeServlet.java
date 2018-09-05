@@ -24,16 +24,19 @@ public class CreateEmployeeServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+        logger.info("EmployeeInfoBean is created");
 		EmployeeInfoBean employeeInfoBean = new EmployeeInfoBean();
 		employeeInfoBean.setId((req.getParameter("id")));
 		employeeInfoBean.setFirstname(req.getParameter("firstname"));
 		employeeInfoBean.setLastname(req.getParameter("lastname"));
 		
+		logger.info("EmployeePersonalInfoBean is created");
 		EmployeePersonalInfoBean employeePersonalInfoBean = new EmployeePersonalInfoBean();
 	    employeePersonalInfoBean.setId((req.getParameter("id")));
 	    employeePersonalInfoBean.setDateOfBirth(req.getParameter("dateOfBirth"));
 	    employeePersonalInfoBean.setPhNumber(Long.parseLong(req.getParameter("phNumber")));
 	    employeePersonalInfoBean.setEmailId(req.getParameter("emailId"));
+	    
 	    
 	    EmployeeAddressInfoBean employeeAddressInfoBean = new EmployeeAddressInfoBean();
 	    employeeAddressInfoBean.setId((req.getParameter("id")));
