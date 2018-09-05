@@ -3,7 +3,7 @@ package com.teamsankya.employeedatabase.dto;
 public class EmployeePersonalInfoBean{
 	private String id;
 	private String dateOfBirth;
-	private int phNumber;
+	private long phNumber;
 	private String emailId;
 	
 	public String getId() {
@@ -18,11 +18,11 @@ public class EmployeePersonalInfoBean{
 	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	public int getPhNumber() {
+	public long getPhNumber() {
 		return phNumber;
 	}
-	public void setPhNumber() {
-		this.phNumber=phNumber ;
+	public void setPhNumber(long phNumber) {
+		this.phNumber = phNumber ;
 	}
 	public String getEmailId() {
 		return emailId;
