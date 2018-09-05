@@ -7,7 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Search Completed</h1><br>
-	<a href='./index.jsp'>Click here for Home Page</a>
+
+    
+    
+
+       <div class="SearchBar">
+            <form>
+                  <center>   <input type="text"  name="searchall" placeholder="Search..." required>  </center>
+            </form>
+        </div>
+
+    
+
+
 </body>
 </html>
