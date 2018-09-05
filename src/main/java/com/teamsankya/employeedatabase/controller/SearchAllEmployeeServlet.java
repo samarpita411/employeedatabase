@@ -13,7 +13,7 @@ import com.teamsankya.employeedatabase.factory.EmployeeServiceManager;
 public class SearchAllEmployeeServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String name = req.getParameter("name");
+		String name = req.getParameter("searchall");
 		EmployeeDAO dao= EmployeeServiceManager
 				.getInstance()
 				.daoGenerator();

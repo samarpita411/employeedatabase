@@ -60,7 +60,7 @@ public class CreateEmployeeServlet extends HttpServlet {
         
         EmployeeDAO dao = EmployeeServiceManager.getInstance().daoGenerator();
 //        System.out.println("calling create method");
-        String b = dao.createEmployee(employeeMasterBean);
+          dao.createEmployee(employeeMasterBean);
 //        System.out.println("Create method called");
         
         req.getRequestDispatcher("create_response.jsp").forward(req, resp);		
