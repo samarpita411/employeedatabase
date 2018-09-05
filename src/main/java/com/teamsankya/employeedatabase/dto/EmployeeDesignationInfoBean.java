@@ -4,12 +4,10 @@ public class EmployeeDesignationInfoBean {
 	private String id;
 	private String designation;
 	private int costToCompany;
-<<<<<<< HEAD
+
 	
-	public int getId() {
-=======
+	
 	public String getId() {
->>>>>>> branch 'master' of https://github.com/samarpita411/employeedb.git
 		return id;
 	}
 	public void setId(String string) {
