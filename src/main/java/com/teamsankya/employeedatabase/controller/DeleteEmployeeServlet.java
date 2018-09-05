@@ -13,7 +13,7 @@ import com.teamsankya.employeedatabase.factory.EmployeeServiceManager;
 public class DeleteEmployeeServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int empId = Integer.parseInt(req.getParameter("EmpId"));
+		String empId = req.getParameter("EmpId");
 		EmployeeDAO dao = EmployeeServiceManager
 				.getInstance()
 				.daoGenerator();

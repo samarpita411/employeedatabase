@@ -9,7 +9,7 @@ public interface EmployeeDAO
 	public boolean createEmployee(EmployeeMasterBean bean);
 	public EmployeeMasterBean searchEmployee(String empId);
     public boolean updateEmployee(EmployeeMasterBean bean );
-	public boolean deleteEmployee(int empId);
+	public boolean deleteEmployee(String empId);
 	
 	
 
