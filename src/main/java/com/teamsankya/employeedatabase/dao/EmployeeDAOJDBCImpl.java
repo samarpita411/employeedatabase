@@ -134,7 +134,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 							
 							
 							
-//							System.out.println("student found table1");
+							logger.info("student found table1");
 							data.getEmpInfoBean().setId(rs.getString("id"));
 							data.getEmpInfoBean().setFirstname(rs.getString("firstname"));
 							data.getEmpInfoBean().setLastname(rs.getString("lastname"));
