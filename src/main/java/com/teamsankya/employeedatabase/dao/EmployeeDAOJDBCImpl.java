@@ -339,11 +339,8 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 		}
 		return check;
 	}//end of deleteEmployee method
-	@Override
-	public boolean deleteEmployee(String empId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
+	
 
 }//end of class
 
