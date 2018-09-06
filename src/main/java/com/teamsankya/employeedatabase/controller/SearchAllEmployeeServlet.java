@@ -8,16 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.teamsankya.employeedatabase.dao.EmployeeDAO;
+import com.teamsankya.employeedatabase.dto.EmployeeMasterBean;
 import com.teamsankya.employeedatabase.factory.EmployeeServiceManager;
 
 public class SearchAllEmployeeServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String name = req.getParameter("searchall");
-		EmployeeDAO dao= EmployeeServiceManager
-				.getInstance()
-				.daoGenerator();
-        dao.searchEmployee(name);
+
+		EmployeeDAO dao = EmployeeServiceManager
+		.getInstance()
+		.daoGenerator();
+		
+        EmployeeMasterBean bean = dao.searchEmployee(name);
+		req.setAttribute("bean", bean);
+		System.out.println(bean);
         req.getRequestDispatcher("searchall_response.jsp").forward(req, resp);
         
 	}
