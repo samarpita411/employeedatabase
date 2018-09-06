@@ -19,43 +19,48 @@ cellspacing="3">
 <td colspan=3>
 <center><font size=6><b>Employee Registration Form</b></font></center>
 </td>
-</tr>                    <tr>
+</tr>             <tr>
 					<td>First Name</td>
-					<td><input type="text" name="first_name" size="30"  /></td>
+					<td><input type="text" name="firstname" size="30"  /></td>
 				</tr>
 				<tr>
 					<td>Last Name</td>
-					<td><input type="text" name="last_name" size="30" /></td>
+					<td><input type="text" name="lastname" size="30" /></td>
 				</tr>
 				
                    <tr>
 					<td>Phone No</td>
-					<td><input type="tel" name="phone_no"  size="30"/></td>
+					<td><input type="tel" name="phNumber"  size="30"/></td>
 				   </tr>
                    <tr>
 					<td>Email ID</td>
-					<td><input type="emailid" name="email_id"  size="30"/></td>
+					<td><input type="emailid" name="emailId"  size="30"/></td>
 				  </tr>
-
+                <tr>
+					<td>Date Of Birth</td>
+					<td><input type="date" name="dateOfBirth"size="30" /></td>
+				</tr>
                    <tr>
 					<td>Date Of Joining</td>
-					<td><input type="date" name="date_of_joining" size="30" /></td>
+					<td><input type="date" name="dateOfJoining" size="30" /></td>
 				</tr>
-                   <tr>
-					<td>Date Of Birth</td>
-					<td><input type="date" name="date_of_birth"size="30" /></td>
-				</tr>
+                  
                   <tr>
 					<td>Designation</td>
 					<td><input type="text" name="designation" size="30" /></td>
 				</tr>
+				    <tr>
+					         <td>Cost To Company</td>
+					          <td><input type="text" name="costToCompany"size="30" /></td>
+				           </tr>
+				
                <tr>
 					<td>Experience</td>
 					<td><input type="number" name="experience" size="30" /></td>
 				</tr>
                                 <tr>
 					<td>Last Company Name</td>
-					<td><input type="text" name="last_company_name" size="30" /></td>
+					<td><input type="text" name="lastCompanyName" size="30" /></td>
 				</tr>
 				<tr>
 					<td>Address</td>
@@ -76,11 +81,7 @@ cellspacing="3">
                                         <td><input type="text" name="pincode" size="30" /></td>
 
 				              </tr>
-                                 <tr>
-					         <td>Cost To Company</td>
-					          <td><input type="text" name="cost_to_company"size="30" /></td>
-				           </tr>
-<tr>
+                             <tr>
 <td><input type="reset"></td>
 <td colspan="3"><input type="submit" value="Submit" /></td>
 </tr>

@@ -22,8 +22,8 @@ EmployeeMasterBean bean = (EmployeeMasterBean) request.getAttribute("bean");
 			<td>City</td>
 			<td>Pincode</td>
 			<td>Email id</td>
-			<td>PhNumber.</td>
-			<td>DOB</td>
+			<td>Phone no</td>
+			<td>Date of Birth</td>
 			<td>Experience</td>
 			<td>last company name</td>
 			<td>designation</td>
