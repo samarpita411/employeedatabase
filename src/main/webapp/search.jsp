@@ -6,7 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body>>
+    
+   <form action="./search" method="post">
+
+       <div class="SearchBar">
+            <form>
+                  <center>   <input type="text"  name="search" placeholder="Search..." required>  </center>
+            </form>
+        </div>
+
+    
 
 </body>
 </html>

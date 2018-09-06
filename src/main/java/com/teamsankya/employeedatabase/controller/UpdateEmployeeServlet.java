@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.teamsankya.employeedatabase.dao.EmployeeDAO;
 import com.teamsankya.employeedatabase.dto.EmployeeAddressInfoBean;
-import com.teamsankya.employeedatabase.dto.EmployeeCompanyInfoBean;
-import com.teamsankya.employeedatabase.dto.EmployeeDesignationInfoBean;
+import com.teamsankya.employeedatabase.dto.PreviousCompanyInfoBean;
+import com.teamsankya.employeedatabase.dto.CurrentCompanyInfoBean;
 import com.teamsankya.employeedatabase.dto.EmployeeInfoBean;
 import com.teamsankya.employeedatabase.dto.EmployeeMasterBean;
 import com.teamsankya.employeedatabase.dto.EmployeePersonalInfoBean;
@@ -28,7 +28,7 @@ public class UpdateEmployeeServlet extends HttpServlet {
 		EmployeePersonalInfoBean employeePersonalInfoBean = new EmployeePersonalInfoBean();
 	    employeePersonalInfoBean.setId((req.getParameter("id")));
 	    employeePersonalInfoBean.setDateOfBirth(req.getParameter("dateOfBirth"));
-	    employeePersonalInfoBean.setPhNumber(Integer.parseInt(req.getParameter("phNumber")));
+	    employeePersonalInfoBean.setPhNumber(Long.parseLong(req.getParameter("phNumber")));
 	    employeePersonalInfoBean.setEmailId(req.getParameter("emailId"));
 	    
 	    EmployeeAddressInfoBean employeeAddressInfoBean = new EmployeeAddressInfoBean();
@@ -38,23 +38,23 @@ public class UpdateEmployeeServlet extends HttpServlet {
 	    employeeAddressInfoBean.setCity(req.getParameter("city"));
 	    employeeAddressInfoBean.setPincode(Integer.parseInt(req.getParameter("pincode")));
 	    
-        EmployeeCompanyInfoBean employeeCompanyInfoBean = new EmployeeCompanyInfoBean();
-        employeeCompanyInfoBean.setId((req.getParameter("id")));
-        employeeCompanyInfoBean.setDateOfJoining(req.getParameter("dateOfJoining"));
-        employeeCompanyInfoBean.setExperience(Integer.parseInt(req.getParameter("experience")));
-        employeeCompanyInfoBean.setLastCompanyName(req.getParameter("lastCompanyName"));
+        PreviousCompanyInfoBean PreviousCompanyInfoBean = new PreviousCompanyInfoBean();
+        PreviousCompanyInfoBean.setId((req.getParameter("id")));
+        PreviousCompanyInfoBean.setExperience(Integer.parseInt(req.getParameter("experience")));
+        PreviousCompanyInfoBean.setLastCompanyName(req.getParameter("lastCompanyName"));
         
-        EmployeeDesignationInfoBean employeeDesignationInfoBean = new EmployeeDesignationInfoBean();
-        employeeDesignationInfoBean.setId((req.getParameter("id")));
-        employeeDesignationInfoBean.setDesignation(req.getParameter("designation"));
-        employeeDesignationInfoBean.setCostTocompany(Integer.parseInt(req.getParameter("costToCompany")));
+        CurrentCompanyInfoBean CurrentCompanyInfoBean = new CurrentCompanyInfoBean();
+        CurrentCompanyInfoBean.setId((req.getParameter("id")));
+        CurrentCompanyInfoBean.setDateOfJoining(req.getParameter("dateOfJoining"));
+        CurrentCompanyInfoBean.setDesignation(req.getParameter("designation"));
+        CurrentCompanyInfoBean.setCostToCompany(Integer.parseInt(req.getParameter("costToCompany")));
 	    
         EmployeeMasterBean employeeMasterBean = new EmployeeMasterBean();
         employeeMasterBean.setEmpInfoBean(employeeInfoBean);
         employeeMasterBean.setEmpPersonalInfoBean(employeePersonalInfoBean);
         employeeMasterBean.setEmpAddressInfoBean(employeeAddressInfoBean);
-        employeeMasterBean.setEmpCompanyInfoBean(employeeCompanyInfoBean);
-        employeeMasterBean.setEmpDesignationInfoBean(employeeDesignationInfoBean);
+        employeeMasterBean.setPreviousCompanyInfoBean(PreviousCompanyInfoBean);
+        employeeMasterBean.setCurrentCompanyInfoBean(CurrentCompanyInfoBean);
 		
 	
 	
@@ -62,11 +62,11 @@ public class UpdateEmployeeServlet extends HttpServlet {
 		EmployeeDAO dao = EmployeeServiceManager
 				.getInstance()
 				.daoGenerator();
-		System.out.println("Calling update method");
-		dao.updateEmployee(employeeMasterBean);
-		System.out.println("Update method called");
-        req.getRequestDispatcher("yet to add response.jsp").forward(req, resp);		
-
+		
+		boolean b = dao.updateEmployee(employeeMasterBean);
+		if(b==true)
+		req.getRequestDispatcher("update_response.jsp").forward(req, resp);		
+		req.getRequestDispatcher("update_response1.jsp").forward(req, resp);		
 		
 		
 	}

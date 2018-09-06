@@ -51,6 +51,6 @@ EmployeeMasterBean bean = (EmployeeMasterBean) request.getAttribute("bean");
 	<%}else { %>
 	<h1>Employee  does not exist</h1>
 	<%} %>
-	<a href='./search.jsp'>Click here to search an employee</a>
+	<a href='./searchall.jsp'>Click here to search an employee</a>
 </body>
 </html>

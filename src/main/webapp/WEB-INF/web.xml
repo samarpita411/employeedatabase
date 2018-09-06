@@ -44,5 +44,13 @@
   <servlet-name>SearchEmployee</servlet-name>
   <url-pattern>/search</url-pattern>
  </servlet-mapping>
+ <servlet>
+  <servlet-name>SearchAllEmployee</servlet-name>
+  <servlet-class>com.teamsankya.employeedatabase.controller.SearchAllEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>SearchAllEmployee</servlet-name>
+  <url-pattern>/searchall</url-pattern>
+ </servlet-mapping>
 
 </web-app>
