@@ -29,8 +29,8 @@ cellspacing="3">
 				</tr>
 				
                    <tr>
-					<td>Contact No</td>
-					<td><input type="tel" name="contact"  size="30"/></td>
+					<td>Phone No</td>
+					<td><input type="tel" name="phone_no"  size="30"/></td>
 				   </tr>
                    <tr>
 					<td>Email ID</td>
@@ -75,12 +75,12 @@ cellspacing="3">
                                         <td>PinCode </td>
                                         <td><input type="text" name="pincode" size="30" /></td>
 
-				</tr>
+				              </tr>
                                  <tr>
-					<td>Cost To Company</td>
-					<td><input type="text" name="cost_to_company"size="30" /></td>
-				</tr>
-				<tr>
+					         <td>Cost To Company</td>
+					          <td><input type="text" name="cost_to_company"size="30" /></td>
+				           </tr>
+<tr>
 <td><input type="reset"></td>
 <td colspan="3"><input type="submit" value="Submit" /></td>
 </tr>
