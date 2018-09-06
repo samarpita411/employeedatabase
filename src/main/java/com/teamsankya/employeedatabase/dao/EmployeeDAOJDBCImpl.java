@@ -43,8 +43,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				pstmt1.setString(2,bean.getEmpInfoBean().getFirstname());
 				pstmt1.setString(3,bean.getEmpInfoBean().getLastname());
 			
-				System.out.println("setting values1 done");
-				
+				System.out.println("setting values1 done");		
 				pstmt2.setString(1,id);
 				pstmt2.setInt(6, bean.getPreviousCompanyInfoBean().getExperience());
 				pstmt2.setString(2, bean.getPreviousCompanyInfoBean().getLastCompanyName());
