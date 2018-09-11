@@ -6,7 +6,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body background="https://images.unsplash.com/photo-1532680678473-a16f2cda8e43?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c35c44795a15fb33ba90a783355c2fc6&auto=format&fit=crop&w=500&q=60">
+
+<center>
+
+<br>
+
+<a href="home.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Home</font size></button></a>
+
+<a href="create.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Register</font size></button></a>
+
+<a href="search.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Search</font size></button></a>
+<a href="update.html"><button style="background-color:dodgerblue;height:50px; width:150px;"><font size=3>Edit</font size></button></a>
+
+<a href="delete.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Delete</font size></button></a>
+<hr>
+</center>
 <form action="./update" method="post">
 <table cellpadding="3" width="50%" bgcolor="cornsilk" align="center"
 cellspacing="3">

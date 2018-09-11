@@ -30,6 +30,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 			int index = random.nextInt(idChar.length);
 			id = id+idChar[index];
 		}
+		logger.info(id);
     	return id;
     	
     }
@@ -43,7 +44,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
     	id= idGenerator();
     	bean = searchEmployee(id);
     	}
-    	while(bean != null);
+    	while(bean == null);
 		return id;
     }
 	@Override
@@ -53,7 +54,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 	//to generate random id from class present in factory pkg in employeedatabase project
 		String id = uniqueId();
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 			logger.info("driver loaded");
 			try (Connection con = DriverManager
 					.getConnection("jdbc:mysql://localhost:3306/employee_db?user=root&password=root");
@@ -74,8 +75,8 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				logger.info("setting values1 done");
 				
 				pstmt2.setString(1,id);
-				pstmt2.setInt(6, bean.getPreviousCompanyInfoBean().getExperience());
-				pstmt2.setString(2, bean.getPreviousCompanyInfoBean().getLastCompanyName());
+				pstmt2.setInt(2, bean.getPreviousCompanyInfoBean().getExperience());
+				pstmt2.setString(3, bean.getPreviousCompanyInfoBean().getLastCompanyName());
 				
 				logger.info("setting values2 done");	
 				
@@ -95,14 +96,16 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				pstmt5.setString(2,bean.getEmpAddressInfoBean().getAddress1());
 				pstmt5.setString(3,bean.getEmpAddressInfoBean().getAddress2());
 				pstmt5.setString(4,bean.getEmpAddressInfoBean().getCity());
-				pstmt5.setInt(4,bean.getEmpAddressInfoBean().getPincode());
+				pstmt5.setInt(5,bean.getEmpAddressInfoBean().getPincode());
 				logger.info("setting values5 done");
 				
-				pstmt1.execute();
-				pstmt2.execute();
-				pstmt3.execute();
+				pstmt1.executeUpdate();
+				pstmt2.executeUpdate();
+				pstmt3.executeUpdate();
+				pstmt4.executeUpdate();
+				pstmt5.executeUpdate();
 				logger.info("query execution done");
-				return id;
+				
 				}
 			}
 		catch (Exception e) {
@@ -233,7 +236,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 		
 		boolean check = false;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 			logger.info("driver loaded");
 			try (Connection con = DriverManager
 					.getConnection("jdbc:mysql://localhost:3306/employee_db?user=root&password=root");
