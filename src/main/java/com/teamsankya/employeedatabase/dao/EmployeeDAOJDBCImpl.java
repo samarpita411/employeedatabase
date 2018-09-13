@@ -18,7 +18,8 @@ import com.teamsankya.employeedatabase.dto.EmployeePersonalInfoBean;
 import com.teamsankya.employeedatabase.factory.GenerateRandomId;
 import com.teamsankya.employeedatabase.dto.CurrentCompanyInfoBean;
 import com.teamsankya.employeedatabase.dto.PreviousCompanyInfoBean;
-public class EmployeeDAOJDBCImpl implements EmployeeDAO {
+public class EmployeeDAOJDBCImpl implements EmployeeDAO
+{
 	final static Logger logger = Logger.getLogger(EmployeeDAOJDBCImpl.class);
     private String idGenerator() {
 		char[] idChar = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p',
@@ -31,7 +32,6 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 			id = id+idChar[index];
 		}
     	return id;
-    	
     }
     private String uniqueId()
     {
@@ -101,6 +101,9 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				pstmt1.execute();
 				pstmt2.execute();
 				pstmt3.execute();
+				pstmt4.execute();
+				pstmt5.execute();
+				
 				logger.info("query execution done");
 				return id;
 				}
@@ -118,7 +121,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 		EmployeeMasterBean data = new EmployeeMasterBean();
 		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			try (Connection con = DriverManager
 					.getConnection("jdbc:mysql://localhost:3306/employee_db?user=root&password=root")) {
 				try (PreparedStatement pstmt = con.prepareStatement("select * from employee_info ei, "
@@ -175,7 +178,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 		ArrayList<EmployeeMasterBean> list = new ArrayList<EmployeeMasterBean>();
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			try (Connection con = DriverManager
 					.getConnection("jdbc:mysql://localhost:3306/employee_db?user=root&password=root"))
 			{
@@ -303,7 +306,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 		boolean check = false;
 		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			try (Connection con = DriverManager
 					.getConnection("jdbc:mysql://localhost:3306/employee_db?user=root&password=root")) {
 				con.setAutoCommit(false);
