@@ -20,7 +20,7 @@ public class CreateEmployeeServlet extends HttpServlet {
 	final static Logger logger = Logger.getLogger(CreateEmployeeServlet.class);
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		 
         logger.info("EmployeeInfoBean is created");
 		EmployeeInfoBean employeeInfoBean = new EmployeeInfoBean();
 		employeeInfoBean.setId((req.getParameter("id")));

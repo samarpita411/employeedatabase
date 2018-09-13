@@ -6,7 +6,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 </head>
-<body>
+<body background="https://images.unsplash.com/photo-1530333821974-f9fcfd6718c8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=533955163c498cbcd7417150119e7ad8&auto=format&fit=crop&w=500&q=60">
+
+<center>
+
+<br>
+
+<a href="home.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Home</font size></button></a>
+
+<a href="create.html"><button style="background-color:dodgerblue;height:50px; width:150px;"><font size=3>Register</font size></button></a>
+
+<a href="search.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Search</font size></button></a>
+<a href="update.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Edit</font size></button></a>
+
+<a href="delete.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Delete</font size></button></a>
+<hr>
+</center>
 <form action="./create" method="post">
 
 <table cellpadding="3" width="50%" bgcolor="lightcyan" align="center"

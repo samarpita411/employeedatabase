@@ -9,7 +9,22 @@
    <br>
 </br>
 </head>
-<body>
+<body background="https://images.unsplash.com/photo-1458724204880-8a3555bb5003?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=65b3b03d6fb8f1821c76cc5e2e25a962&auto=format&fit=crop&w=500&q=60">
+
+<center>
+
+<br>
+
+<a href="home.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Home</font size></button></a>
+
+<a href="create.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Register</font size></button></a>
+
+<a href="search.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Search</font size></button></a>
+<a href="update.html"><button style="background-color:teal;height:50px; width:150px;"><font size=3>Edit</font size></button></a>
+
+<a href="delete.html"><button style="background-color:dodgerblue;height:50px; width:150px;"><font size=3>Delete</font size></button></a>
+<hr>
+</center>
 <form action="./delete" method="post">
 </div>
     <center> <h1>Deleting your Account?</h1>
