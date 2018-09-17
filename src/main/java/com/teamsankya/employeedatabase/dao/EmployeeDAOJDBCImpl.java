@@ -21,32 +21,7 @@ import com.teamsankya.employeedatabase.dto.PreviousCompanyInfoBean;
 public class EmployeeDAOJDBCImpl implements EmployeeDAO
 {
 	final static Logger logger = Logger.getLogger(EmployeeDAOJDBCImpl.class);
-    private String idGenerator() {
-		char[] idChar = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p',
-				'q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9'};
-		String id = "";
-		Random random = new Random();
-		for(int i=0;i<8;i++ )
-		{
-			int index = random.nextInt(idChar.length);
-			id = id+idChar[index];
-		}
-		logger.info(id);
-    	return id;
-    }
-    private String uniqueId()
-    {
-    	
-    	EmployeeMasterBean bean = null;
-    	String id = null;
-    	do
-    	{
-    	id= idGenerator();
-    	bean = searchEmployee(id);
-    	}
-    	while(bean == null);
-		return id;
-    }
+    
 	@Override
 	public String createEmployee(EmployeeMasterBean bean)  {
 		
@@ -114,6 +89,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO
 			// TODO: handle exception
 		}
 		return id;
+	
 	}//end of createEmployee method
 	
 

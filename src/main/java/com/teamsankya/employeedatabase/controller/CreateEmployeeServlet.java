@@ -20,7 +20,12 @@ public class CreateEmployeeServlet extends HttpServlet {
 	final static Logger logger = Logger.getLogger(CreateEmployeeServlet.class);
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		 
+		logger.info("program started");
+		logger.info(resp);
+		logger.info("created first object info object");
+		EmployeeDAO dao = EmployeeServiceManager.getInstance().daoGenerator();
+        
+		
         logger.info("EmployeeInfoBean is created");
 		EmployeeInfoBean employeeInfoBean = new EmployeeInfoBean();
 		employeeInfoBean.setId((req.getParameter("id")));
@@ -61,17 +66,17 @@ public class CreateEmployeeServlet extends HttpServlet {
         employeeMasterBean.setEmpAddressInfoBean(employeeAddressInfoBean);
         employeeMasterBean.setPreviousCompanyInfoBean(previousCompanyInfoBean);
         employeeMasterBean.setCurrentCompanyInfoBean(currentCompanyInfoBean);
-        
-        EmployeeDAO dao = EmployeeServiceManager.getInstance().daoGenerator();
-        logger.info("calling create method");
-          dao.createEmployee(employeeMasterBean);
-        logger.info("Create method called");
-        
-        req.getRequestDispatcher("create_response.jsp").forward(req, resp);		
-        
+        String bean = dao.createEmployee(employeeMasterBean);
+		System.out.println("id is"+bean);
+        String id=req.getParameter("bean");
+        req.setAttribute("bean", id);
+    		req.getRequestDispatcher("create_response.jsp")
+    		.forward(req, resp);
+    	}
+    	
     }
 
-}
+
 
 
 

@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,8 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+
 <body>
-<h1>Your ID is...</h1><br>
+<tr>
+<td>Employee Id</td>
+<td> <input type="text" id="id" name="id"> </td>
+</tr>
+<%String id=(String)request.getAttribute("id");
+out.print("your id is"+id);%>
   <br>
    </br>
 <h1>Data inserted</h1><br>   
